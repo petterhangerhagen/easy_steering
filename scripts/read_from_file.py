@@ -4,15 +4,18 @@ import rospy
 
 filename = "/home/petter/catkin_ws/src/easy_steering/scripts/forces.txt"
 
-#filename = ('forces.txt')
 def read_from_file():
     f = open(filename, "r")
-
-    force = list()
-    list1 = f.readlines()
-    for i in range(len(list1)):
-        size = len(list1[i])
-        list1[i] = list1[i][:size - 1]
-        force.append(int(list1[i]))
-    print(force)
+    force = []
+    temp = f.readlines()
+    for i in range(3):
+        temp[i] = temp[i][:-1]
+    force.append((temp[0]))
+    force.append(int(temp[1]))
+    force.append(int(temp[2]))
     return force
+
+
+
+
+
